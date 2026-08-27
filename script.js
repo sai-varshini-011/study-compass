@@ -75,6 +75,20 @@ document.getElementById("analyzeBtn").addEventListener("click", async () => {
   const semMcq = Number(document.getElementById("semMcq").value);
   const semDesc = Number(document.getElementById("semDesc").value);
 
+  // Reset UI state from any previous run
+  const confirmBtn = document.getElementById("confirmBtn");
+  confirmBtn.disabled = false;
+  confirmBtn.textContent = "✓ This looks correct";
+
+  const sendAlertBtn = document.getElementById("sendAlertBtn");
+  sendAlertBtn.disabled = true;
+  sendAlertBtn.textContent = "Send Faculty Alert";
+  document.getElementById("approveAlert").checked = false;
+  document.getElementById("alertLog").classList.add("hidden");
+  document.getElementById("alertLog").innerHTML = "";
+  document.getElementById("facultyAlertBox").classList.add("hidden");
+  document.getElementById("resultStep").classList.add("hidden");
+
   document.getElementById("reasoningStep").classList.remove("hidden");
   document.getElementById("reasoningLog").textContent = "";
 
