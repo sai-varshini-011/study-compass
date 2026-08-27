@@ -1,0 +1,156 @@
+:root {
+  --navy: #1B2A4A;
+  --navy-dark: #16223D;
+  --teal: #1E7F72;
+  --light-teal: #E8F3F1;
+  --light-navy: #EEF1F6;
+  --red: #E1362B;
+  --text-dark: #222831;
+  --text-muted: #5B6472;
+  --white: #FFFFFF;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Calibri, sans-serif;
+  background: var(--light-navy);
+  color: var(--text-dark);
+  padding: 24px 16px 60px;
+}
+
+.app {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.app-header h1 {
+  font-family: Georgia, serif;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.app-header p {
+  color: var(--text-muted);
+  margin-top: 0;
+}
+
+.card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(27, 42, 74, 0.06);
+}
+
+.card h2 {
+  margin-top: 0;
+  color: var(--navy);
+  font-size: 1.15rem;
+}
+
+.hidden { display: none; }
+
+.field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 16px 0;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  gap: 6px;
+}
+
+input[type="number"] {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #D7DCE5;
+  font-size: 1rem;
+}
+
+button {
+  background: var(--teal);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+button:hover { filter: brightness(1.08); }
+button:disabled { background: #B7C0CC; cursor: not-allowed; }
+
+button.secondary {
+  background: var(--light-navy);
+  color: var(--navy);
+}
+
+.btn-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.log {
+  font-family: 'Consolas', monospace;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  background: var(--navy-dark);
+  color: #C9D6EA;
+  padding: 16px;
+  border-radius: 8px;
+  white-space: pre-wrap;
+}
+
+.verify-box, .result-box {
+  background: var(--light-navy);
+  border-radius: 8px;
+  padding: 16px;
+  line-height: 1.6;
+}
+
+.result-box h3 {
+  margin-top: 0;
+  color: var(--teal);
+}
+
+.alert-box {
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 8px;
+  background: #FBEAE8;
+  border: 1px solid var(--red);
+}
+
+.approval {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  margin: 10px 0;
+  flex-direction: row;
+}
+
+.approval input { width: auto; }
+
+.alert-log {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background: white;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+#downloadBtn {
+  margin-top: 18px;
+  background: var(--navy);
+}
