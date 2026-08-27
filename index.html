@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vignan EduTrack AI Agent</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+  <header class="app-header">
+    <h1>Vignan EduTrack AI Agent</h1>
+    <p>Enter your assessment scores — the agent will analyze your performance pattern and produce a personalized action plan.</p>
+  </header>
+
+  <!-- STEP 1: Input -->
+  <section id="inputStep" class="card">
+    <h2>Step 1 — Enter Your Scores</h2>
+    <div class="field-grid">
+      <label>CA1 · Descriptive (out of 30)
+        <input type="number" id="ca1" min="0" max="30" value="21">
+      </label>
+      <label>CA2 · MCQ (out of 30)
+        <input type="number" id="ca2" min="0" max="30" value="27">
+      </label>
+      <label>Semester-End · MCQ (out of 50)
+        <input type="number" id="semMcq" min="0" max="50" value="44">
+      </label>
+      <label>Semester-End · Descriptive (out of 20)
+        <input type="number" id="semDesc" min="0" max="20" value="12">
+      </label>
+    </div>
+    <button id="analyzeBtn">Analyze My Performance →</button>
+  </section>
+
+  <!-- STEP 2: Agent working (reasoning + decision, shown transparently) -->
+  <section id="reasoningStep" class="card hidden">
+    <h2>Step 2 — Agent Reasoning</h2>
+    <div id="reasoningLog" class="log"></div>
+  </section>
+
+  <!-- STEP 3: Verify -->
+  <section id="verifyStep" class="card hidden">
+    <h2>Step 3 — Confirm Before Finalizing</h2>
+    <div id="verifyBox" class="verify-box"></div>
+    <div class="btn-row">
+      <button id="confirmBtn" class="primary">✓ This looks correct</button>
+      <button id="editBtn" class="secondary">← Edit my scores</button>
+    </div>
+  </section>
+
+  <!-- STEP 4: Result + Action -->
+  <section id="resultStep" class="card hidden">
+    <h2>Step 4 — Result &amp; Action Taken</h2>
+    <div id="resultBox" class="result-box"></div>
+
+    <div id="facultyAlertBox" class="alert-box hidden">
+      <p><strong>⚠ This pattern qualifies for a faculty check-in.</strong></p>
+      <label class="approval">
+        <input type="checkbox" id="approveAlert">
+        I confirm — send this alert to my faculty advisor
+      </label>
+      <button id="sendAlertBtn" disabled>Send Faculty Alert</button>
+      <div id="alertLog" class="alert-log hidden"></div>
+    </div>
+
+    <button id="downloadBtn">⬇ Download My Study Plan</button>
+  </section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
