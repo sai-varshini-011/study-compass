@@ -1,0 +1,22 @@
+{
+  "MCQ_STRONG_DESC_WEAK": {
+    "label": "Strong on MCQs, needs work on descriptive answers",
+    "focus": "Practicing full-sentence explanations and structuring written answers",
+    "resource": "Descriptive answer-writing practice sets, Part B (3-mark) question bank"
+  },
+  "DESC_STRONG_MCQ_WEAK": {
+    "label": "Strong on descriptive answers, needs work on MCQs",
+    "focus": "Quick recall drills and elimination-based MCQ strategy",
+    "resource": "Timed MCQ practice sets, concept flashcards"
+  },
+  "NEEDS_OVERALL_SUPPORT": {
+    "label": "Both MCQ and descriptive scores are below a healthy range",
+    "focus": "Foundational concept review before attempting practice questions",
+    "resource": "Core concept revision modules, one-on-one faculty support session"
+  },
+  "BALANCED_STRONG": {
+    "label": "Consistently strong across both MCQ and descriptive formats",
+    "focus": "Maintaining current habits, light enrichment material",
+    "resource": "Advanced practice sets for extra challenge"
+  }
+}
