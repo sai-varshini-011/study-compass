@@ -122,6 +122,48 @@ button.secondary {
   color: var(--teal);
 }
 
+.mini-chart {
+  margin: 16px 0 20px;
+}
+
+.mini-chart-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.mini-chart-label {
+  width: 90px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.mini-chart-track {
+  flex: 1;
+  background: #E2E7EF;
+  border-radius: 6px;
+  height: 18px;
+  overflow: hidden;
+}
+
+.mini-chart-fill {
+  height: 100%;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 600;
+  transition: width 0.6s ease;
+}
+
+.mini-chart-fill.mcq { background: var(--teal); }
+.mini-chart-fill.desc { background: var(--red); }
+
 .alert-box {
   margin-top: 18px;
   padding: 16px;
