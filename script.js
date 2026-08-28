@@ -160,7 +160,8 @@ document.getElementById("confirmBtn").addEventListener("click", async () => {
     document.getElementById("facultyAlertBox").classList.remove("hidden");
   }
 
-  document.getElementById("verifyStep").classList.add("hidden");
+    // Step 3 stays visible alongside Step 4 so the full agent pipeline is visible at once
+  document.getElementById("confirmBtn").textContent = "✓ Confirmed";
   document.getElementById("resultStep").classList.remove("hidden");
 });
 
