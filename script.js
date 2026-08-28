@@ -136,10 +136,23 @@ document.getElementById("confirmBtn").addEventListener("click", async () => {
   const aiText = await getAIExplanation(analysis, kbEntry);
   currentAnalysis.aiText = aiText;
 
-  const resultBox = document.getElementById("resultBox");
+   const resultBox = document.getElementById("resultBox");
   resultBox.innerHTML = `
     <h3>${kbEntry.label}</h3>
-    <p><strong>MCQ Average:</strong> ${analysis.mcqAvg}% &nbsp; | &nbsp; <strong>Descriptive Average:</strong> ${analysis.descAvg}%</p>
+    <div class="mini-chart">
+      <div class="mini-chart-row">
+        <span class="mini-chart-label">MCQ</span>
+        <div class="mini-chart-track">
+          <div class="mini-chart-fill mcq" style="width:${analysis.mcqAvg}%">${analysis.mcqAvg}%</div>
+        </div>
+      </div>
+      <div class="mini-chart-row">
+        <span class="mini-chart-label">Descriptive</span>
+        <div class="mini-chart-track">
+          <div class="mini-chart-fill desc" style="width:${analysis.descAvg}%">${analysis.descAvg}%</div>
+        </div>
+      </div>
+    </div>
     <p>${aiText.replace(/\n/g, "<br>")}</p>
   `;
 
