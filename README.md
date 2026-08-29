@@ -1,69 +1,58 @@
-# Vignan EduTrack AI Agent 🎓
+# StudyCompass — Student Performance Insight Agent
 
-**An AI Agent that turns disconnected assessment scores into a specific, actionable next step — for the student and, when needed, for their faculty.**
+🏆 *This project (originally built as "Vignan EduTrack AI Agent") won 3rd Prize in Vignan's Agentic AI Day 2026 — Build an AI Agent competition.*
 
-Vignan EduTrack AI Agent takes a student's CA1, CA2, and Semester-End scores, reasons through them using real, transparent code logic, decides what kind of support they actually need, and then takes genuine action — a personalized study plan, and where warranted, a human-approved faculty alert. It doesn't just chat about performance; it works through a full agent pipeline, visibly, step by step.
+## Problem Statement
+Students often struggle to make sense of their CA1, CA2, and Semester-End assessment scores — they see numbers, but not what those numbers mean for how they should study next. This project analyzes a student's score pattern (MCQ vs. Descriptive performance) and turns it into a clear, personalized, and encouraging study plan.
 
-Built for **Vignan's Build an AI Agent Competition 2026**.
+## Features
+- **Score Input** — Student enters CA1, CA2, and Semester-End (MCQ + Descriptive) scores
+- **Deterministic Classification Logic** — Real code (not AI) calculates MCQ vs. Descriptive averages and classifies the student into one of four performance patterns
+- **Knowledge Base Lookup** — Matches the classification to pre-written guidance (focus area + recommended resource)
+- **AI-Generated Explanation** — An LLM (via Groq API) turns the raw classification into a warm, encouraging written explanation
+- **Human Verification Step** — Student reviews and confirms the analysis before the final report is generated
+- **Downloadable Study Plan** — Generates a real, downloadable `.txt` study plan
+- **Human-Approved Faculty Alert** — For students flagged as needing extra support, a simulated faculty alert can be sent, but only after the student explicitly approves it
 
----
+## Technology Stack
+- **Frontend:** HTML, CSS, JavaScript (vanilla, no framework)
+- **Backend:** Vercel Serverless Function (`api/chat.js`)
+- **AI Model:** Groq API (`openai/gpt-oss-120b`)
+- **Deployment:** Vercel
 
-## The Problem It Solves
+## Screenshots
+*(Add screenshots of the 4 app steps here: Score Input, Agent Reasoning, Verify, Result & Action)*
 
-Vignan Online's assessment structure has three distinct components each semester — CA1 (descriptive, 30 marks), CA2 (MCQ, 30 marks), and the Semester-End Exam (MCQ + descriptive, 70 marks). These scores currently exist as separate, disconnected numbers. No system identifies *why* a student is scoring the way they are — whether the real gap is recall (MCQs) or explanation and construction (descriptive answers). Students and faculty only see the final outcome, never the pattern behind it, until it's too late to act.
+## Live Demo
+[https://vignan-edutrack-agent.vercel.app/](https://vignan-edutrack-agent.vercel.app/)
 
-## What It Does
+## Backend
+Backend logic runs as a Vercel Serverless Function within the same deployment above (`/api/chat.js`) — no separate backend URL.
 
-- **Reads real assessment data** — CA1, CA2, and Semester-End scores, entered directly by the student
-- **Reasons transparently** — a visible, step-by-step log shows exactly what the agent is doing: Understand → Reason/Plan → Use Data → Decide, live on screen, not hidden behind a spinner
-- **Classifies the performance pattern** using deterministic code logic (not AI) — MCQ-strong/descriptive-weak, descriptive-strong/MCQ-weak, needs overall support, or balanced/consistently strong
-- **Looks up matching guidance** from a structured knowledge base (`data.json`) before deciding anything
-- **Decides whether a pattern needs human attention** — and only then, conditionally, prepares a faculty-alert path
-- **Calls AI for exactly one job** — turning the already-made decision into a warm, plain-language explanation and a 3-step action plan
-- **Asks the student to verify** the analysis before anything is finalized
-- **Takes real action** — generates an actual downloadable `.txt` study plan, and requires an explicit human approval checkbox before logging a simulated faculty alert with a timestamp
-- **Produces a clear final result** — a visual MCQ vs. Descriptive bar-chart breakdown alongside the AI's explanation
+## Setup Instructions
+1. Clone this repository:
+   ```
+   git clone <your-repo-url>
+   cd <repo-folder>
+   ```
+2. Install the Vercel CLI (if not already installed):
+   ```
+   npm install -g vercel
+   ```
+3. Create a `.env` file in the project root and add your Groq API key (see Environment Variables below).
+4. Run locally:
+   ```
+   vercel dev
+   ```
+5. Open the local URL shown in your terminal (usually `http://localhost:3000`).
 
-## Why This Is a True Agent, Not a Chatbot
+## Environment Variables
+| Variable | Description |
+|----------|--------------|
+| `GROQ_API_KEY` | API key for Groq's LLM API, used to generate the AI explanation text |
 
-The competition rules are explicit: *"A simple prompt sent to an AI model followed by displaying its response will not qualify as a complete AI Agent."* This project is built specifically around that line.
-
-Every decision here — the classification, the faculty-alert trigger — happens in transparent, testable JavaScript **before** AI is ever called. AI is used only for one well-scoped task: writing warm, clear language around a decision that's already been made deterministically. This is the same reason the reasoning log is shown live on screen rather than hidden — so anyone reviewing the agent can see *exactly* how it got from raw scores to a final result, not just trust that it did.
-
-## Tech Stack
-
-- **HTML, CSS, JavaScript** — no frontend framework
-- **Groq API** (Llama-based model, `openai/gpt-oss-120b`) — used only for the explanation-generation step
-- **Vercel Serverless Function** (`/api/chat.js`) — keeps the API key secure server-side, never exposed in browser-visible code, in line with the competition's ethical guidelines
-- **`data.json`** — a small structured knowledge base the agent references before making its decision
-
-## Repository Structure
-
-| File | Purpose |
-|---|---|
-| `index.html` | Main application page — the 4-step agent interface |
-| `style.css` | Styling for all steps, including the result bar chart |
-| `script.js` | Core agent logic — reasoning, classification, decision-making, verification, and action steps |
-| `data.json` | Structured knowledge base referenced during the "Use Tools/Data" step |
-| `api/chat.js` | Vercel serverless function — securely calls the Groq API without exposing the key |
-
-## Running It
-
-### Option A — View the Live Deployed Application (Recommended)
-Visit **https://vignan-edutrack-agent.vercel.app/** — no installation needed. Enter sample assessment scores and click "Analyze My Performance" to run the full agent pipeline end to end.
-
-### Option B — Run Locally / Redeploy Your Own Copy
-1. Clone this repository
-2. Get a free API key at **console.groq.com**
-3. Deploy the project on Vercel, adding an environment variable named `GROQ_API_KEY` with that key
-4. Open the deployed URL — the `/api/chat` serverless function will now securely handle all AI calls
-
-**Note:** This project needs a Vercel-style serverless environment to run the AI explanation step, since the key is intentionally kept server-side. Opening `index.html` directly from a local folder (without deployment) will still run Steps 1–4 of the reasoning and decision logic correctly, but the AI-generated explanation call won't resolve.
-
-## Test Cases
-
-See `Test_Cases.md` for four sample score combinations and their expected classifications, including one that correctly triggers the faculty-alert flow.
+*(Never commit actual key values — only variable names are listed here.)*
 
 ---
 
-*Built by M Sai Varshini, BBA Semester 4, USN: 251CK01003, for Vignan's Build an AI Agent Competition 2026.*
+Made by Sai Varshini — for the Build Your AI Automation Platform Workshop
