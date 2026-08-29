@@ -1,5 +1,5 @@
 // =========================================================
-// EduTrack AI Agent — full pipeline:
+// StudyCompass — Student Performance Insight Agent — full pipeline:
 // Understand -> Reason/Plan -> Use Tools/Data -> Make Decision
 // -> Use AI -> Verify -> Take Action/Automate -> Produce Result
 // =========================================================
@@ -183,7 +183,7 @@ document.getElementById("sendAlertBtn").addEventListener("click", () => {
 document.getElementById("downloadBtn").addEventListener("click", () => {
   if (!currentAnalysis) return;
   const { analysis, kbEntry, aiText } = currentAnalysis;
-  const content = `VIGNAN EDUTRACK AI — PERSONALIZED STUDY PLAN
+  const content = `STUDY COMPASS — STUDENT PERFORMANCE INSIGHT AGENT
 Generated: ${new Date().toLocaleString()}
 
 MCQ Average: ${analysis.mcqAvg}%
@@ -198,7 +198,7 @@ ${aiText || ""}
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = "EduTrack_Study_Plan.txt";
+  a.download = "StudyCompass_Study_Plan.txt";
   a.click();
   URL.revokeObjectURL(url);
 });
