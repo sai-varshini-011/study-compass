@@ -24,7 +24,7 @@ Students often struggle to make sense of their CA1, CA2, and Semester-End assess
 *(Add screenshots of the 4 app steps here: Score Input, Agent Reasoning, Verify, Result & Action)*
 
 ## Live Demo
-[https://vignan-edutrack-agent.vercel.app/](https://vignan-edutrack-agent.vercel.app/)
+[https://vignan-edutrack-agent.vercel.app/](https://study-compass-agent.vercel.app/)
 
 ## Backend
 Backend logic runs as a Vercel Serverless Function within the same deployment above (`/api/chat.js`) — no separate backend URL.
