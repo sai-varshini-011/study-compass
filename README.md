@@ -21,7 +21,9 @@ Students often struggle to make sense of their CA1, CA2, and Semester-End assess
 - **Deployment:** Vercel
 
 ## Screenshots
-*(Add screenshots of the 4 app steps here: Score Input, Agent Reasoning, Verify, Result & Action)*
+![Step 1 - Enter Scores](step1-input.png)
+![Step 2 & 3 - Agent Reasoning and Verify](step2-3-reasoning-verify.png)
+![Step 4 - Result & Action](step4-result.png)
 
 ## Live Demo
 [https://study-compass-agent.vercel.app/](https://study-compass-agent.vercel.app/)
