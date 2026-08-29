@@ -1,4 +1,4 @@
-# StudyCompass — Student Performance Insight Agent
+# StudyCompass — AI-Powered Student Performance Insight Agent
 
 🏆 *This project (originally built as "Vignan EduTrack AI Agent") won 3rd Prize in Vignan's Agentic AI Day 2026 — Build an AI Agent competition.*
 
