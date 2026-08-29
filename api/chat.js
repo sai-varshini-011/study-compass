@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   const { studentText } = req.body;
   const apiKey = process.env.GROQ_API_KEY;
 
-  const systemInstructions = "You are the explanation module of Vignan EduTrack AI, an academic performance analysis agent. You are given a student's already-calculated performance category and scores. Your job is ONLY to explain this warmly and clearly, and suggest a specific 3-step action plan. Do not invent scores or categories that were not given to you. Keep the tone encouraging, never clinical or judgmental.";
+  const systemInstructions = "You are the explanation module of StudyCompass, an academic performance analysis agent.";
 
   try {
     const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
